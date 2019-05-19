@@ -27,8 +27,10 @@ thresh[thresh < 255] = 0
 thresh = cv2.bitwise_not(thresh)
 cv2.imshow("Otsu", thresh)
 
+# finding out the value of T using riddler-calvard algorithm
 T = mahotas.thresholding.rc(blurred)
 print("Riddler-Calvard: {}".format(T))
+
 thresh = image.copy()
 thresh[thresh > T] = 255
 thresh[thresh < 255] = 0
